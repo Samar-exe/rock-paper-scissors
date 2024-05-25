@@ -96,11 +96,11 @@ let humanScore = 0;
 let computerScore = 0;
 playGame();
 if (humanScore > computerScore) {
-  console.log("You Win!")
+  alert("You Win!")
 }
 else if (computerScore > humanScore) {
-  console.log("You Lose!")
+  alert("You Lose!")
 }
 else {
-  console.log("It's a Tie!")
+  alert("It's a Tie!")
 }
