@@ -40,6 +40,9 @@ function playGame() {
         console.log("paper wins");
         computerScore += 1;
       }
+      else if (computerSelection === ("rock")) {
+        console.log("Both selected the same thing");
+      }
       else {
         if (computerSelection === ("scissors")) {
           console.log("rock wins");
@@ -52,6 +55,9 @@ function playGame() {
         console.log("paper wins");
         humanScore += 1;
       }
+      else if (computerSelection === ("paper")) {
+        console.log("Both selected the same thing");
+      }
       else {
         if (computerSelection === ("scissors")) {
           console.log("scissors wins");
@@ -63,6 +69,9 @@ function playGame() {
       if (computerSelection === ("paper")) {
         console.log("scissors wins");
         humanScore += 1;
+      }
+      else if (computerSelection === ("scissors")) {
+        console.log("Both selected the same thing");
       }
       else {
         if (computerSelection === ("rock")) {
