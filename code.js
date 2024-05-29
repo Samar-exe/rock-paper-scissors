@@ -80,7 +80,7 @@ function CheckForWinner() {
     };
   }
   else {
-    result.textContent = `Curent Score: ${humanScore} vs ${computerScore}`
+    result.textContent = `You:  ${humanScore} vs Computer: ${computerScore}`
   };
 }
 const rock = document.querySelector("#rock");
@@ -108,4 +108,4 @@ scissor.addEventListener("click", () => {
 });
 
 const result = document.querySelector("#result");
-result.textContent = `Curent Score: ${humanScore} vs ${computerScore}`
+result.textContent = ` You: ${humanScore} vs Computer: ${computerScore} `
