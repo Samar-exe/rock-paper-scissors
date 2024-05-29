@@ -21,4 +21,13 @@ button:hover {
 #result {
   font-size: 20px;
   color: #ebebe3;
+  margin-top: 80px;
+  background-color: #4a4a48;
+  width: 500px;
+  margin-left: 420px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 150px;
 }
