@@ -1,8 +1,3 @@
-
-function getHumanChoice() {
-  return prompt("Select Element");
-};
-
 function getComputerChoice() {
   randomNumber = Math.random();
   if (randomNumber > 0.5) {
