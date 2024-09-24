@@ -47,7 +47,7 @@ function compareElements(userChoice, computerChoice) {
   };
 };
 
-function resultOfRound(result) {
+function resultOfSingleRound(result) {
   let win = 1;
   let loss = 0;
   let draw = -1;
@@ -62,36 +62,53 @@ function resultOfRound(result) {
   };
 };
 
-function startGame() {
-  for (let index = 0; index < 5; index++) {
-    userChoice = getHumanChoice();
-    computerChoice = getComputerChoice();
-    roundResult = resultOfRound(compareElements(userChoice, computerChoice));
-    if (roundResult === 1) {
-      computerFinalScore += 1;
+function startGame(userChoice) {
+  userChoice = userChoice;
+  computerChoice = getComputerChoice();
+  roundResult = resultOfSingleRound(compareElements(userChoice, computerChoice));
+  if (roundResult === 1) {
+    computerFinalScore += 1;
+  }
+  else if (roundResult === 0) {
+    userFinalScore += 1;
+  }
+  scoreBoard.textContent = `Your Score: ${userFinalScore}  Computer Score: ${computerFinalScore}`;
+  noOfRounds++;
+  if (noOfRounds === 5) {
+
+    if (userFinalScore > computerFinalScore) {
+      scoreBoard.textContent = "You win";
     }
-    else if (roundResult === 0) {
-      userFinalScore += 1;
+    else if (userFinalScore < computerFinalScore) {
+      scoreBoard.textContent = "You lose";
     }
+    else {
+      scoreBoard.textContent = "Draw!!";
+    };
   };
-  if (userFinalScore > computerFinalScore) {
-    alert("You win");
-  }
-  else if (userFinalScore < computerFinalScore) {
-    alert("You lose");
-  }
-  else {
-    alert("Draw!!");
-  };
-  if(prompt("You wanna Play another? Round") === "yes"){
-    startGame();
-  }
 };
 
-let userChoice;
-let computerChoice;
+let elementButtons = document.querySelectorAll(".element-btn");
+let scoreBoard = document.querySelector("#board");
+let newGameButton = document.querySelector(".new-button");
+
+let noOfRounds = 0;
 let roundResult;
 let userFinalScore = 0;
 let computerFinalScore = 0;
-startGame();
 
+elementButtons.forEach(element => {
+  element.addEventListener("click", () => {
+    if (noOfRounds != 5) {
+      startGame(element.value);
+    };
+  })
+})
+
+newGameButton.addEventListener("click", () => {
+  noOfRounds = 0;
+  roundResult;
+  userFinalScore = 0;
+  computerFinalScore = 0;
+  scoreBoard.textContent = "Start";
+})
